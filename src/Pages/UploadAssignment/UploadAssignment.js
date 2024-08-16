@@ -17,7 +17,7 @@ const UploadAssignment = ({ isDarkMode, language, userId }) => {
 
     useEffect(() => {
         // Fetch courses from backend on component mount
-        axios.get(`http://localhost:4001/api/instructor/${userId}/courses`)
+        axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/instructor/${userId}/courses`)
             .then(response => setCourses(response.data))
             .catch(error => console.error('Error fetching courses:', error));
     }, [userId]);
@@ -46,7 +46,7 @@ const UploadAssignment = ({ isDarkMode, language, userId }) => {
         formData.append('dueDate', adjustedDueDate);
 
         // Send POST request to backend to upload assignment
-        axios.post('http://localhost:4001/upload-assignment', formData)
+        axios.post('https://premiumbackend-i6je84wv.b4a.run//upload-assignment', formData)
             .then(response => {
                 console.log('Assignment uploaded successfully:', response.data);
                 toast.success(language === 'En' ? 'Assignment uploaded successfully!' : 'تم رفع الواجب بنجاح!');

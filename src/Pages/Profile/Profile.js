@@ -14,7 +14,7 @@ const Profile = ({ isDarkMode, language, userId }) => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get(`http://localhost:4001/user/${userId}`);
+      const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//user/${userId}`);
       setUserData(response.data);
       console.log(response.data);
     } catch (err) {
@@ -60,7 +60,7 @@ const Profile = ({ isDarkMode, language, userId }) => {
     }
 
     try {
-      const response = await axios.put('http://localhost:4001/user/update', formData, {
+      const response = await axios.put('https://premiumbackend-i6je84wv.b4a.run//user/update', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },

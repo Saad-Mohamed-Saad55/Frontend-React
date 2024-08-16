@@ -13,7 +13,7 @@ const AdminCourses = ({ isDarkMode, language }) => {
 
     const fetchDepartments = async () => {
         try {
-            const response = await axios.get('http://localhost:4001/api/departments');
+            const response = await axios.get('https://premiumbackend-i6je84wv.b4a.run//api/departments');
             setDepartments(response.data);
         }catch (err) {
             console.log("Error fetching departments data: ", err);

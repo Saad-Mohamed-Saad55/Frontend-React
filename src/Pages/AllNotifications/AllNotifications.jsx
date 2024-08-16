@@ -3,7 +3,7 @@ import axios from 'axios';
 import "./AllNotificaions.css"
 import io from "socket.io-client";
 
-const socket = io('http://localhost:4001');
+const socket = io('https://premiumbackend-i6je84wv.b4a.run/');
 
 function AllNotifications({ userId }) {
     const [notifications, setNotifications] = useState([]);
@@ -11,7 +11,7 @@ function AllNotifications({ userId }) {
     useEffect(() => {
         const fetchNotifications = async () => {
             try {
-                const response = await axios.get(`http://localhost:4001/api/notifications/${userId}`);
+                const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/notifications/${userId}`);
                 if (response.data) {
                     const formattedNotifications = response.data.map(notif => ({
                         ...notif,

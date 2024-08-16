@@ -13,7 +13,7 @@ function HeaderItems ({ language, auth,role, isDarkMode, name, toggleLanguage, t
 
     const navigate = useNavigate();
     const handleSignOut = () => {
-        axios.get('http://localhost:4001/signOut')
+        axios.get('https://premiumbackend-i6je84wv.b4a.run//signOut')
             .then(res => {
                 navigate('/');
                 window.location.reload();

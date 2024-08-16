@@ -25,7 +25,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4001/api/student/${userId}/courses`);
+        const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/student/${userId}/courses`);
         if (Array.isArray(response.data)) {
           setCourses(response.data);
         } else {
@@ -47,7 +47,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
   const handleCourseSelect = (courseId) => {
     console.log('courseId', courseId);
     axios
-        .get(`http://localhost:4001/api/exams/${courseId}`)
+        .get(`https://premiumbackend-i6je84wv.b4a.run//api/exams/${courseId}`)
         .then((response) => {
           setExams(response.data);
         })
@@ -62,7 +62,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
     resetExamState();
     setSelectedQuizId(examId);
     axios
-        .get(`http://localhost:4001/api/exams-details/${examId}`)
+        .get(`https://premiumbackend-i6je84wv.b4a.run//api/exams-details/${examId}`)
         .then((response) => {
           const details = response.data[0];
           setExamDetails(details);
@@ -84,7 +84,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
         });
 
     axios
-        .get(`http://localhost:4001/api/exams-questions/${examId}`)
+        .get(`https://premiumbackend-i6je84wv.b4a.run//api/exams-questions/${examId}`)
         .then((response) => {
           setExamQuestions(response.data);
         })
@@ -93,7 +93,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
         });
 
     axios
-        .get(`http://localhost:4001/api/exams-answers/${examId}`)
+        .get(`https://premiumbackend-i6je84wv.b4a.run//api/exams-answers/${examId}`)
         .then((response) => {
           setExamAnswers(response.data);
         })
@@ -140,7 +140,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
     });
 
     axios
-        .post(`http://localhost:4001/api/student-answers/${userId}`, {
+        .post(`https://premiumbackend-i6je84wv.b4a.run//api/student-answers/${userId}`, {
           answers,
           examId: selectedQuizId,
         })
@@ -157,7 +157,7 @@ const TakeExam = ({ isDarkMode, language, Role, userId }) => {
 
   const handleStartExam = () => {
     axios
-        .get(`http://localhost:4001/api/student-exam-status/${userId}/${selectedQuizId}`)
+        .get(`https://premiumbackend-i6je84wv.b4a.run//api/student-exam-status/${userId}/${selectedQuizId}`)
         .then((response) => {
           if (response.data.is_submitted) {
             // setIsSubmitted(true);

@@ -16,7 +16,7 @@ function ExamPreviewPage({ isDarkMode, language, Role, userId }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:4001/api/instructor/${userId}/courses`);
+        const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/instructor/${userId}/courses`);
 
         if (Array.isArray(response.data)) {
           setCourses(response.data);
@@ -32,7 +32,7 @@ function ExamPreviewPage({ isDarkMode, language, Role, userId }) {
 
   const handleCourseSelect = (courseId) => {
     // setSelectedCourse(courseId);
-    axios.get(`http://localhost:4001/api/exams/${courseId}`)
+    axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/exams/${courseId}`)
         .then(response => {
           setExams(response.data);
           // setSelectedExam('');
@@ -45,7 +45,7 @@ function ExamPreviewPage({ isDarkMode, language, Role, userId }) {
 
   const handleExamSelect = (examId) => {
     // setSelectedExam(examId);
-    axios.get(`http://localhost:4001/api/exam-preview/${examId}`)
+    axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/exam-preview/${examId}`)
         .then(response => {
           setExam(response.data);
         })

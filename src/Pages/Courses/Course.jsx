@@ -20,9 +20,9 @@ export default function Course({ isDarkMode, Role  }) {
                 console.log("Role: ",Role)
                 let response;
                 if (Role === 'student') {
-                    response = await axios.get(`http://localhost:4001/api/student/${userId}/courses`);
+                    response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/student/${userId}/courses`);
                 } else if (Role === 'instructor') {
-                    response = await axios.get(`http://localhost:4001/api/instructor/${userId}/courses`);
+                    response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/instructor/${userId}/courses`);
                 }
                 console.log('API response:', response.data); // Log the response
                 if (Array.isArray(response.data)) {

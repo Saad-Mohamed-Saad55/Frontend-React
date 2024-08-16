@@ -23,7 +23,7 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:4001/api/courses/${courseCode}/chapters`);
+                const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/courses/${courseCode}/chapters`);
                 setChapters(response.data);
             } catch (error) {
                 console.log('Error fetching data:', error);
@@ -43,7 +43,7 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
         formData.append('file', file);
 
         try {
-            await axios.post(`http://localhost:4001/api/courses/${courseCode}/chapters`, formData, {
+            await axios.post(`https://premiumbackend-i6je84wv.b4a.run//api/courses/${courseCode}/chapters`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data'
                 }
@@ -51,7 +51,7 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
             alert('Chapter uploaded successfully');
             setFile(null); // Clear file input
             // Refresh the chapters list
-            const response = await axios.get(`http://localhost:4001/api/courses/${courseCode}/chapters`);
+            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/courses/${courseCode}/chapters`);
             setChapters(response.data);
         } catch (error) {
             if (error.response && error.response.data && error.response.data.message) {
@@ -64,7 +64,7 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
 
     const handleDownload = async (chapterId, fileName) => {
         try {
-            const response = await axios.get(`http://localhost:4001/api/chapters/${chapterId}/download`, {
+            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/chapters/${chapterId}/download`, {
                 responseType: 'blob',
             });
             const url = window.URL.createObjectURL(new Blob([response.data]));
@@ -81,10 +81,10 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
 
     const handleDelete = async (chapterId) => {
         try {
-            await axios.delete(`http://localhost:4001/api/chapters/${chapterId}`);
+            await axios.delete(`https://premiumbackend-i6je84wv.b4a.run//api/chapters/${chapterId}`);
             alert('Chapter deleted successfully');
             // Refresh the chapters list
-            const response = await axios.get(`http://localhost:4001/api/courses/${courseCode}/chapters`);
+            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/courses/${courseCode}/chapters`);
             setChapters(response.data);
         } catch (error) {
             console.error('Error deleting chapter', error);
@@ -93,7 +93,7 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
 
     const handleView = async (chapterId) => {
         try {
-            const response = await axios.get(`http://localhost:4001/api/chapters/${chapterId}/view`, {
+            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/chapters/${chapterId}/view`, {
                 responseType: 'blob',
             });
             const contentType = response.headers['content-type'];

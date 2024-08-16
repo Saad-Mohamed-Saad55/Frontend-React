@@ -9,7 +9,7 @@ export const AuthProvider = ({ children }) => {
 
     axios.defaults.withCredentials = true;
     useEffect(() => {
-        axios.get('http://localhost:4001')
+        axios.get('https://premiumbackend-i6je84wv.b4a.run/')
             .then(res => {
                 console.log("Server response:", res.data);
                 if (res.data.Status === "Success") {
