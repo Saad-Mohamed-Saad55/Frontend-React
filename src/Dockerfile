@@ -1,12 +1,12 @@
 FROM node@latest
 
-WORKDIR /src/App
+WORKDIR App
 
-COPY ["package.json", "package-lock.json*", "./"]
+COPY ["../package.json", "../package-lock.json*", "./"]
 
 RUN npm ci
 
-COPY . .
+COPY .. .
 
 RUN npm run build
 
