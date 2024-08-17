@@ -30,7 +30,7 @@ const MakeExam = ({ language, isDarkMode, userId }) => {
         .catch(error => {
           console.error('Error fetching courses:', error);
         });
-  }, []);
+  }, [userId]);
 
   const alphabet = 'abcdefghijklmnopqrstuvwxyz'.toUpperCase().split('');
 

@@ -54,7 +54,8 @@ function Notifications({ userId }) {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, [showPopover]);
+    // eslint-disable-next-line no-use-before-define
+    }, [handleClickOutside, showPopover]);
 
     const handleClickOutside = (event) => {
         if (popoverRef.current && !popoverRef.current.contains(event.target)) {

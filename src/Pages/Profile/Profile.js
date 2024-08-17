@@ -12,6 +12,7 @@ const Profile = ({ isDarkMode, language, userId }) => {
   const [imageFile, setImageFile] = useState(null);
   const [userData, setUserData] = useState('');
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const fetchUserData = async () => {
     try {
       const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//user/${userId}`);
@@ -24,7 +25,7 @@ const Profile = ({ isDarkMode, language, userId }) => {
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [fetchUserData]);
 
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);

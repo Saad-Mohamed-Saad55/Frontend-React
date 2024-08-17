@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import React from 'react';
 import './NavBar.css';
 import PagesLinks from "../PagesLinks/PagesLinks";
 const NavBar = ({

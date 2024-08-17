@@ -1,14 +1,9 @@
 
-import React, {useContext, useState} from 'react';
-import {Link, useLocation, useNavigate} from 'react-router-dom';
+import React from 'react';
+import Link from 'react-router-dom';
 import './Header.css';
 import logo from './images/logo.jpg';
-import moonIcon from "./images/night.png"
-import sunIcon from "./images/sun.png"
-import {AuthContext} from "../AuthContext/AuthContext";
-import axios from "axios";
 import HeaderItems from "../HeaderItems/HeaderItems";
-import Notifications from "../Notifications/Notifications";
 
 
 const Header = ({

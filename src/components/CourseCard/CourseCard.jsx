@@ -1,6 +1,5 @@
 import "./Course.css";
 import React from "react";
-import { Link } from 'react-router-dom';
 
 
 export default function CourseCard({index, imgUrl,courseName, handleCourseClick, courseCoode}) {

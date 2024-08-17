@@ -5,7 +5,6 @@ import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
 import moment from 'moment';
 import {ToastContainer, toast} from "react-toastify"
-import coursesData from './coursesData'; // Assuming this contains initial courses data
 
 const UploadAssignment = ({ isDarkMode, language, userId }) => {
     const [selectedCourse, setSelectedCourse] = useState('');
