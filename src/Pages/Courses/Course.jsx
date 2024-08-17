@@ -1,10 +1,7 @@
 import "./Course.css";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import phoneIcon from "../Chapters/Imgs/phone-icon.png";
-import mailIcon from "../Chapters/Imgs/mail-icon.png";
-import dollarIcon from "../Chapters/Imgs/dollar-sign.png";
-import axios, { all } from "axios";
+import axios from "axios";
 
 import CourseCard from "../../components/CourseCard/CourseCard";
 

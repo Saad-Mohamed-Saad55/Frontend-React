@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const ChapterInstall = (props) => {
-    const [chapterId, setChapterId] = useState(props.match.params.id); // Get chapter ID from URL parameter
+    const [chapterId] = useState(props.match.params.id); // Get chapter ID from URL parameter
     const [chapterInfo, setChapterInfo] = useState(null);
 
     useEffect(() => {

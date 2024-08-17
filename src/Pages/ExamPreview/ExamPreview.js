@@ -6,7 +6,7 @@ import ExamSelect from '../ExamResults/ExamSelect';
 import "./ExamPreview.css"
 
 function ExamPreviewPage({ isDarkMode, language, Role, userId }) {
-  const [exam, setExam] = useState(null);
+  const [setExam] = useState(null);
   const [editMode, setEditMode] = useState(false);
   const [courses, setCourses] = useState([]);
   const [exams, setExams] = useState([]);
@@ -58,9 +58,6 @@ function ExamPreviewPage({ isDarkMode, language, Role, userId }) {
     setEditMode(prevMode => !prevMode);
   };
 
-  const editExam = () => {
-    // Add your editing logic here
-  };
   
   return (
       <div className={`${isDarkMode ? 'dark-mode' : 'light-mode'} exam-container`}>

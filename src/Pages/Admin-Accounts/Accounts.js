@@ -46,13 +46,6 @@ const Accounts = ({ language, isDarkMode,relative,fixed }) => {
     resetFormData();
   };
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -63,6 +56,7 @@ const Accounts = ({ language, isDarkMode,relative,fixed }) => {
     if (formData.newEmail) dataToUpdate.newEmail = formData.newEmail;
     if (formData.newPassword) dataToUpdate.newPassword = formData.newPassword;
     dataToUpdate.userID = formData.userID;
+    // eslint-disable-next-line no-unused-vars
     let response;
     if (selectedOption === "update"){
       axios.post(`https://premiumbackend-i6je84wv.b4a.run//update-account`, dataToUpdate)

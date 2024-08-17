@@ -10,7 +10,8 @@ const InstructorsView = ({ language }) => {
     const [newInstructorCourse, setNewInstructorCourse] = useState([]);
     const [selectedStudent, setSelectedStudent] = useState('');
 
-    const fetchInstructorsCourses = async () => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps, no-undef
+    const fetchInstructorsCourses = useCallback(async () => {
         try {
             const response = await axios.get('https://premiumbackend-i6je84wv.b4a.run//api/students-enrollments');
             setStudentsEnrollments(response.data);
@@ -18,7 +19,7 @@ const InstructorsView = ({ language }) => {
             console.error('Error fetching enrollments data:', err);
             toast.error(language === 'En' ? 'Error fetching enrollments data' : 'خطأ في جلب بيانات التسجيلات');
         }
-    };
+    });
 
     useEffect(() => {
         fetchInstructorsCourses();
@@ -40,7 +41,7 @@ const InstructorsView = ({ language }) => {
                 console.error('Error fetching students data:', err);
                 toast.error(language === 'En' ? 'Error fetching students data' : 'خطأ في جلب بيانات الطلاب');
             });
-    }, []);
+    }, [fetchInstructorsCourses, language]);
     console.log("students: ", students);
     console.log("instructors courses: ", instructorsCourses);
     console.log("enrollments : ", studentsEnrollments);

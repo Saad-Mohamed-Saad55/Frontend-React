@@ -10,7 +10,8 @@ const InstructorsView = ({ language }) => {
     const [newDepartmentCourse, setNewDepartmentCourse] = useState([]);
     const [selectedInstructor, setSelectedInstructor] = useState('');
 
-    const fetchInstructorsCourses = async () => {
+    // eslint-disable-next-line react-hooks/exhaustive-deps, no-undef
+    const fetchInstructorsCourses = useCallback(async () => {
         try {
             const response = await axios.get('https://premiumbackend-i6je84wv.b4a.run//api/instructors-departments-courses');
             setInstructorsCourses(response.data);
@@ -18,7 +19,7 @@ const InstructorsView = ({ language }) => {
             console.error('Error fetching instructors-courses data:', err);
             toast.error(language === 'En' ? 'Error fetching instructors-courses data' : 'خطأ في جلب بيانات الدورات والمدربين');
         }
-    };
+    });
 
     useEffect(() => {
         fetchInstructorsCourses();
@@ -39,7 +40,7 @@ const InstructorsView = ({ language }) => {
                 console.error('Error fetching instructors data:', err);
                 toast.error(language === 'En' ? 'Error fetching instructors data' : 'خطأ في جلب بيانات المدربين');
             });
-    }, []);
+    }, [fetchInstructorsCourses, language]);
 
     const handleAdd = async () => {
         try {

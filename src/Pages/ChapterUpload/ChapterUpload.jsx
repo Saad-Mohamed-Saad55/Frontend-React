@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import phoneIcon from "../Chapters/Imgs/phone-icon.png";
 import mailIcon from "../Chapters/Imgs/mail-icon.png";
 import dollarIcon from "../Chapters/Imgs/dollar-sign.png";
-import { UploadFile, ConfirmDelete } from "../../components";
+import { UploadFile } from "../../components";
 import uploadLabel from "../FileUpload/images/uploadLabel.png";
 import "./ChapterUpload.css"
 
@@ -14,9 +14,8 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
     const [errorMessage, setErrorMessage] = useState('');
     const [fileView, setFileView] = useState(null);
     const [uploadingVisible, setUploadingVisible] = useState(false);
-    const [deletionVisible, setDeletionVisible] = useState(false);
-    const [isDragging, setIsDragging] = useState(false);
-    const [isMeetingStarted, setIsMeetingStarted] = useState(false);
+    const [setIsDragging] = useState(false);
+    const [isMeetingStarted] = useState(false);
     const { courseCode } = useParams();
     const navigate = useNavigate();
 
@@ -62,47 +61,7 @@ const ChapterUpload = ({ isDarkMode, language, Role }) => {
         }
     };
 
-    const handleDownload = async (chapterId, fileName) => {
-        try {
-            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/chapters/${chapterId}/download`, {
-                responseType: 'blob',
-            });
-            const url = window.URL.createObjectURL(new Blob([response.data]));
-            const link = document.createElement('a');
-            link.href = url;
-            link.setAttribute('download', fileName);
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        } catch (error) {
-            console.error('Error downloading chapter', error);
-        }
-    };
 
-    const handleDelete = async (chapterId) => {
-        try {
-            await axios.delete(`https://premiumbackend-i6je84wv.b4a.run//api/chapters/${chapterId}`);
-            alert('Chapter deleted successfully');
-            // Refresh the chapters list
-            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/courses/${courseCode}/chapters`);
-            setChapters(response.data);
-        } catch (error) {
-            console.error('Error deleting chapter', error);
-        }
-    };
-
-    const handleView = async (chapterId) => {
-        try {
-            const response = await axios.get(`https://premiumbackend-i6je84wv.b4a.run//api/chapters/${chapterId}/view`, {
-                responseType: 'blob',
-            });
-            const contentType = response.headers['content-type'];
-            const url = window.URL.createObjectURL(new Blob([response.data], { type: contentType }));
-            setFileView({ url, contentType });
-        } catch (error) {
-            console.error('Error viewing chapter', error);
-        }
-    };
 
     const handleDragOver = (event) => {
         event.preventDefault();

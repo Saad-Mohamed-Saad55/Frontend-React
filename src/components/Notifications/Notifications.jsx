@@ -57,6 +57,7 @@ function Notifications({ userId }) {
     // eslint-disable-next-line no-use-before-define
     }, [handleClickOutside, showPopover]);
 
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     const handleClickOutside = (event) => {
         if (popoverRef.current && !popoverRef.current.contains(event.target)) {
             setShowPopover(false);

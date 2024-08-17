@@ -6,8 +6,8 @@ import StudentResults from './StudentResults';
 import './ExamResult.css';
 
 function ExamResults({ language, isDarkMode, Role, userId }) {
-    const [selectedCourse, setSelectedCourse] = useState('');
-    const [selectedExam, setSelectedExam] = useState('');
+    const [setSelectedCourse] = useState('');
+    const [setSelectedExam] = useState('');
     const [courses, setCourses] = useState([]);
     const [exams, setExams] = useState([]);
     const [students, setStudents] = useState([]);
